@@ -78,7 +78,9 @@ export class AppComponent {
     this.selectedHero = hero;
   }
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroesSlowly().then(
+      heroes => this.heroes = heroes;
+    )
   }
   ngOnInit(): void {
     this.getHeroes();
